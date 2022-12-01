@@ -5,12 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Post extends Model
+class Pet extends Model
 {
     use HasFactory;
     
-    protected static $fillable = [
-        'alias', 'decriprion', 'published_at', 'published', 'category_id'
+    protected $fillable = [
+        'alias', 'type', 'male', 'dateBirthdDay', 'race',
+        'published_at', 'published', 'category_id',
     ];
 
     public function category()

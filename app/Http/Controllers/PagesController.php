@@ -9,7 +9,7 @@ class PagesController extends Controller
         return view('home');
     }
 
-    public function myApplications()
+    public function Applications()
     {
         return 'myApplications';
     }
