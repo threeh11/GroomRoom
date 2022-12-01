@@ -4,27 +4,41 @@
     
 @section('main')
     @if($pets == NULL)
-        <a href="">
-            Добавить питомца
-        </a>
-        <div class="block">
-            <form action="{{ route('addPet') }}" method="post" class="flex flex-col w-1/3 m-auto">
-                @csrf
-                <input type="text" name="alias" placeholder="Введите кличку животного">
-                <input type="text" name="type" placeholder="Введите вид животного">
-                <p>{{ __('Выберите пол') }}</p>
-                <div class="flex flex-row">
-                    <label class="pr-3" for="maleM" id="maleM_label">{{ __('Мужской') }}</label>
-                    <input type="radio" name="maleM" id="maleM">
-                    <label class="px-3" for="maleW" id="maleW_label">{{ __('Женский') }}</label>
-                    <input type="radio" name="maleW" id="maleW">
-                </div>
-                <input type="date" name="date" placeholder="Введите дату рождения животного">
-                <input type="text" name="race" placeholder="Введите породу животного">
-                <input type="submit" value="Добавить">
-            </form>
-        </div>
+        <x-addButton/>
+        <x-formAddPets/>
     @else
-
+        <x-addButton/>
+        <x-formAddPets/>
+        <div class="mt-10">
+        <table class="table w-full">
+          <thead>
+            <tr>
+              <th>{{ __('ID') }}</th>
+              <th>{{ __('Кличка') }}</th>
+              <th>{{ __('Вид') }}</th>
+              <th>{{ __('Пол') }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for($i = 0; $i < $pets->count(); $i++)
+                <tr>
+                  <th>{{ $pets[$i]->id }}</th>
+                  <th>{{ $pets[$i]->alias }}</th>
+                  <th>{{ $pets[$i]->type }}</th>
+                  <th class="w-[200px]">{{ $pets[$i]->male }}</th>
+                  <th class="w-[10px]">
+                    <a href="{{ route('editPet', $pets[$i]->id) }}">EDIT</a>
+                  </th> 
+                  <th class="w-[10px]">
+                      <form action="{{ route('deletePet', $pets[$i]->id) }}" method="post">
+                        @csrf
+                        <input class="cursor-pointer" type="submit" value="DELETE">
+                      </form>
+                  </th>
+                </tr>
+            @endfor
+          </tbody>
+        </table>
+      </div>
     @endif
 @endsection
