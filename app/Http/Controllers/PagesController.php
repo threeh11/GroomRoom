@@ -21,6 +21,6 @@ class PagesController extends Controller
 
     public function profile()
     {
-        return 'profile';
+        return view('profile');
     }
 }
