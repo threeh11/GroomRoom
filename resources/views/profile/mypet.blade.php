@@ -4,10 +4,14 @@
     
 @section('main')
     @if($pets == NULL)
-        <x-addButton/>
+        <x-addButton>
+            {{ __('Добавить питомца') }}
+        </x-addButton>
         <x-formAddPets/>
     @else
-        <x-addButton/>
+        <x-addButton>
+            {{ __('Добавить питомца') }}
+        </x-addButton>
         <x-formAddPets/>
         <div class="mt-10">
         <table class="table w-full">

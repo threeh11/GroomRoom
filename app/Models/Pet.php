@@ -11,11 +11,11 @@ class Pet extends Model
     
     protected $fillable = [
         'alias', 'type', 'male', 'dateBirthdDay', 'race',
-        'published_at', 'published', 'category_id',
+        'published_at', 'published',
     ];
 
-    public function category()
+    public function aplications()
     {
-      return $this->belongsTo(Category::class);
+      return $this->hasMany(Aplication::class);
     }
 }

@@ -1,18 +1,25 @@
 let openForm = false;
 
-document.getElementById('addBlockPets')?.addEventListener('click', () => {
+document.getElementById('addBlock')?.addEventListener('click', () => {
     if(openForm == false)
     {
-        document.getElementById('addBlockPets').innerText = 'Закрыть';
-        document.getElementById('formAddPets').classList.remove('hidden');
-        document.getElementById('formAddPets').classList.add('block');
+        document.getElementById('addBlock').innerText = 'Закрыть';
+        document.getElementById('form').classList.remove('hidden');
+        document.getElementById('form').classList.add('block');
         openForm = true;
     }
     else
     {
-        document.getElementById('addBlockPets').innerText = 'Добавить питомца';
-        document.getElementById('formAddPets').classList.add('hidden');
-        document.getElementById('formAddPets').classList.remove('block');
+        if (document.location.pathname == '/profile/my_aplications')
+        {
+            document.getElementById('addBlock').innerText = 'Добавить заявку';
+        }
+        else
+        {
+            document.getElementById('addBlock').innerText = 'Добавить питомца';
+        }
+        document.getElementById('form').classList.add('hidden');
+        document.getElementById('form').classList.remove('block');
         openForm = false;
     }
 });
@@ -23,6 +30,14 @@ document.getElementById('date').addEventListener('click', () => {
 
 document.getElementById('date').addEventListener('blur', () => {
     document.getElementById('date').type = 'text';
+});
+
+document.getElementById('time')?.addEventListener('click', () => {
+    document.getElementById('time').type = 'time';
+});
+
+document.getElementById('time')?.addEventListener('blur', () => {
+    document.getElementById('time').type = 'text';
 });
 
 //Работа с radio button
@@ -38,18 +53,18 @@ function chekRadioMaleW()
     document.getElementById('maleM').checked = false; 
 }
 
-document.getElementById('maleM').addEventListener('click', () =>{
+document.getElementById('maleM')?.addEventListener('click', () =>{
     chekRadioMaleM();
 });
-document.getElementById('maleW').addEventListener('click', () =>{
+document.getElementById('maleW')?.addEventListener('click', () =>{
     chekRadioMaleW();
 });
 
-document.getElementById('maleM_label').addEventListener('click', () => {
+document.getElementById('maleM_label')?.addEventListener('click', () => {
     document.getElementById('maleM').checked = true;
     document.getElementById('maleW').checked = false;
 });
-document.getElementById('maleW_label').addEventListener('click', () => {
+document.getElementById('maleW_label')?.addEventListener('click', () => {
     document.getElementById('maleW').checked = true;
     document.getElementById('maleM').checked = false;
 });

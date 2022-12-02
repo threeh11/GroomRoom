@@ -3,7 +3,6 @@
 namespace App\Actions;
 
 use App\Models\Pet;
-use Illuminate\Http\Request;
 
 class GetPetsAction
 {

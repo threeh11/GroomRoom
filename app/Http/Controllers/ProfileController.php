@@ -2,26 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\GetDataAplicationsAction;
 use App\Actions\GetEditPetsAction;
 use App\Actions\GetPetsAction;
+use App\Actions\StoreAplicationAction;
 use App\Actions\StorePetsAction;
 use App\Actions\UpdatePetsAction;
-
+use App\Http\Requests\StoreAplicationsRequest;
 use App\Http\Requests\StorePetsRequest;
+use App\Models\Aplication;
 use Illuminate\Http\Request;
 
 use App\Models\Pet;
 
 class ProfileController extends Controller
 {
-    public function myPet(Request $request, GetPetsAction $getPets)
+    public function myPet(GetPetsAction $getPets)
     {
-        return view('profile.mypet', $getPets->handle($request));
-    }
-
-    public function myApplications()
-    {
-        return view('profile.myaplications');
+        return view('profile.mypet', $getPets->handle());
     }
 
     public function addPet(StorePetsRequest $request, StorePetsAction $storePets)
@@ -46,5 +44,17 @@ class ProfileController extends Controller
     {
         $updatePets->handle($id, $request);
         return redirect()->route('myPet');
+    }
+
+    public function myApplications(GetDataAplicationsAction $getAplications)
+    {
+        return view('profile.myaplications', $getAplications->handle());
+    }
+
+    public function addAplication(StoreAplicationsRequest $request, 
+                            StoreAplicationAction $storeAplication)
+    {
+        $storeAplication->handle($request);
+        return redirect()->route('myApplications');
     }
 }

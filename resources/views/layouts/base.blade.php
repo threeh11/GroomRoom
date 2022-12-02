@@ -21,12 +21,12 @@
             </header>
         </div>
     </div>
-    <div class="container m-auto flex flex-col grow">
+    <div class="container m-auto flex flex-col grow mb-10">
         <main>
             @yield('main')
         </main>
     </div>
-    <div class="w-full h-min bg-white mt-10">
+    <div class="w-full h-min bg-white">
         <div class="container m-auto flex flex-col py-5">
             <footer class="">
                 @include('includes.footer')

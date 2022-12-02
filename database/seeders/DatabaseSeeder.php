@@ -2,16 +2,15 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Category;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
     
     public function run()
     {
-        DB::table('categories')->insert([
+        Category::insert([
             ['name' => 'Стрижка'],
             ['name' => 'Глажка'],
             ['name' => 'Уход'],
