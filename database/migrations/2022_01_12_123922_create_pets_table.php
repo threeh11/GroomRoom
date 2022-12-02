@@ -18,9 +18,6 @@ return new class extends Migration
             $table->date('dateBirthdDay');
             $table->string('race');
 
-            $table->unsignedBigInteger('category_id')->nullable();
-            $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');;
-
             $table->boolean('published')->default(true);
             $table->timestamp('published_at')->nullable();
         });
