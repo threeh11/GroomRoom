@@ -10,6 +10,7 @@ document.getElementById('addBlock')?.addEventListener('click', () => {
     }
     else
     {
+
         if (document.location.pathname == '/profile/my_aplications')
         {
             document.getElementById('addBlock').innerText = 'Добавить заявку';

@@ -34,18 +34,54 @@
             </tr>
         </thead>
         <tbody>
-            @for($i = 0; $i < $aplications->count(); $i++)
+            @foreach ($aplications as $aplication)
                 <tr>
-                <th>{{ $aplications[$i]->id }}</th>
-                <th>{{ $aplications[$i]->pet->type . ' ' . $aplications[$i]->pet->alias }}</th>
-                <th>{{ $aplications[$i]->type }}</th>
-                <th>{{ $aplications[$i]->place }}</th>
-                <th>{{ $aplications[$i]->date }}</th>
-                <th>{{ $aplications[$i]->time }}</th>
+                <th>{{ $aplication->id }}</th>
+                <th>{{ $aplication->pet->type . ' ' . $aplication->pet->alias }}</th>
+                <th>{{ $aplication->type }}</th>
+                <th>{{ $aplication->place }}</th>
+                <th>{{ $aplication->date }}</th>
+                <th>{{ $aplication->time }}</th>
                 </tr>
-            @endfor
+            @endforeach
         </tbody>
         </table>
         </div>
     @endif
+    <div class="flex flex-row my-10">
+        @if($countElPage < $countAplications)
+            <div class="flex flex-row justify-between w-full">
+                {{ $aplications->appends(['count' => $countElPage])->links('vendor.pagination.tailwind') }}
+                <div class="btn-group ml-10">
+                    <a class="btn" href="{{ route('myAplications', ['count' => 10,'page' => $page]) }}">
+                        10
+                    </a>
+                    <a class="btn" href="{{ route('myAplications', ['count' => 20,'page' => $page]) }}">
+                        20
+                    </a>
+                    <a class="btn" href="{{ route('myAplications', ['count' => 50,'page' => $page]) }}">
+                        50
+                    </a>
+                    <a class="btn" href="{{ route('myAplications', ['count' => 100,'page' => $page]) }}">
+                        100
+                    </a>
+                </div>
+            </div>
+        @else
+        <div class="flex justify-center w-full btn-group">
+            <a class="btn" href="{{ route('myAplications', ['page' => $page, 'count' => 10]) }}">
+                10
+            </a>
+            <a class="btn" href="{{ route('myAplications', ['page' => $page, 'count' => 20]) }}">
+                20
+            </a>
+            <a class="btn" href="{{ route('myAplications', ['page' => $page, 'count' => 50]) }}">
+                50
+            </a>
+            <a class="btn" href="{{ route('myAplications', ['page' => $page, 'count' => 100]) }}">
+                100
+            </a>
+        </div>
+        @endif
+    </div>
 @endsection

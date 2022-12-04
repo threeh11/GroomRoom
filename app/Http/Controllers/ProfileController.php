@@ -10,10 +10,9 @@ use App\Actions\StorePetsAction;
 use App\Actions\UpdatePetsAction;
 use App\Http\Requests\StoreAplicationsRequest;
 use App\Http\Requests\StorePetsRequest;
-use App\Models\Aplication;
-use Illuminate\Http\Request;
 
 use App\Models\Pet;
+use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
@@ -46,15 +45,15 @@ class ProfileController extends Controller
         return redirect()->route('myPet');
     }
 
-    public function myApplications(GetDataAplicationsAction $getAplications)
+    public function myAplications(Request $request, GetDataAplicationsAction $getAplications)
     {
-        return view('profile.myaplications', $getAplications->handle());
+        return view('profile.myaplications', $getAplications->handle($request));
     }
 
     public function addAplication(StoreAplicationsRequest $request, 
                             StoreAplicationAction $storeAplication)
     {
         $storeAplication->handle($request);
-        return redirect()->route('myApplications');
+        return redirect()->route('myAplications');
     }
 }

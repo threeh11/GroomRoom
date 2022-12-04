@@ -10,5 +10,5 @@ Route::post('/profile/my_pet/delete_pet/{id}', [ProfileController::class, 'delet
 Route::get('/profile/my_pet/edit_pet/{id}', [ProfileController::class, 'editPet'])->name('editPet');
 Route::post('/profile/my_pet/edit_pet/{id}', [ProfileController::class, 'storePet'])->name('storePet');
 
-Route::get('/profile/my_aplications', [ProfileController::class , 'myApplications'])->name('myApplications');
+Route::get('/profile/my_aplications', [ProfileController::class , 'myAplications'])->name('myAplications');
 Route::post('/profile/my_aplications/add_aplication', [ProfileController::class , 'addAplication'])->name('addAplication');
