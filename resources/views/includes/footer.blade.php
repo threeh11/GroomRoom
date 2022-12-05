@@ -1,8 +1,8 @@
-<div class="flex flex-row justify-between h-10 items-center">
-    <p class="footer-text">
+<div class="flex flex-row justify-between items-center">
+    <p>
         ©️ {{ config('app.name') }}
     </p>
-    <a href="{{ route('index') }}" class="">
+    <a href="{{ route('index') }}">
         {{ __('Политика конфиденциальности') }}
     </a>
 </div>

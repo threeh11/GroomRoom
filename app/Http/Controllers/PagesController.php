@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Aplication;
+use App\Models\Category;
+use Illuminate\Http\Request;
+
 class PagesController extends Controller
 {
     public function index()
@@ -9,14 +13,11 @@ class PagesController extends Controller
         return view('home');
     }
 
-    public function Applications()
+    public function allAplications(Request $request)
     {
-        return 'myApplications';
-    }
-
-    public function allAplications()
-    {
-        return 'allAplications';
+        $categories = Category::all();
+        $aplications = Aplication::all();
+        return view('allaplication', compact('categories', 'aplications'));
     }
 
     public function profile()

@@ -13,21 +13,21 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <title>@yield('title')</title>
 </head>
-<body class="bg-[#f0f0f0] flex flex-col h-screen">
+<body class="bg-[#f0f0f0] flex flex-col justify-between min-h-screen">
     <div class="w-full h-min bg-white">
-        <div class="container m-auto flex flex-col">
+        <div class="container mx-auto flex flex-col">
             <header class="flex flex-row justify-between items-center py-5">
                 @include('includes.header')
             </header>
         </div>
     </div>
-    <div class="container m-auto flex flex-col grow">
+    <div class="container mx-auto flex flex-col grow">
         <main>
             @yield('main')
         </main>
     </div>
-    <div class="w-full h-min bg-white">
-        <div class="container m-auto flex flex-col py-5">
+    <div class="w-full bg-white self-end">
+        <div class="container mx-auto flex flex-col py-5">
             <footer>
                 @include('includes.footer')
             </footer>

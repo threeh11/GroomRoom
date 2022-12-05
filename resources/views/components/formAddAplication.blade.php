@@ -27,7 +27,7 @@
                     </option>
                 @endfor
             @else
-                <option disabled selected>{{ __('Нет ниодного питомца') }}</option>
+                <option disabled selected>{{ __('Нет ниодной категории') }}</option>
             @endif
         </select>
         @error('category')
