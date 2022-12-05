@@ -5,7 +5,13 @@
 @section('main')
     <div class="p-6 bg-white rounded-2xl my-10">
         <h3 class="text-3xl">
-            {{ __('Профиль') }}
+            {{ $aplication->pet->alias }}
         </h3>
+        <p>
+            {{ $aplication->type }}
+        </p>
+        <p>
+            {{ $aplication->date . ' ' . $aplication->time }}
+        </p>
     </div>
 @endsection

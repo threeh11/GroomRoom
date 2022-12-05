@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Actions\DeletePetAction;
 use App\Actions\GetDataAplicationsAction;
 use App\Actions\GetEditPetsAction;
 use App\Actions\GetPetsAction;
@@ -27,9 +28,9 @@ class ProfileController extends Controller
         return redirect()->route('myPet');
     }
 
-    public function deletePet(int $id)
+    public function deletePet(int $id, DeletePetAction $deletePet)
     {
-        Pet::destroy($id);
+        $deletePet->handle($id);
         return redirect()->route('myPet');
     }
 
