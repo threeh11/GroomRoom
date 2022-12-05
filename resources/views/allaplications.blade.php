@@ -1,17 +1,16 @@
 @extends('layouts.base')
 
-@section('title', __('Профиль'))
+@section('title', __('Все заявки'))
     
 @section('main')
     <div class="p-6 bg-white rounded-2xl my-10">
         <form action="{{ route('allAplications') }}" method="get" class="flex flex-row items-start justify-between">
             <div class="flex flex-row w-[55%] justify-between">
-                <input type="text" name="search" placeholder="Поиск" class="input input-bordered w-full max-w-xs" />
                 <select class="select select-bordered w-full max-w-xs" name="category">
                 @if($categories != NULL)
-                    <option selected>{{ __('Все категории') }}</option>
+                    <option @selected($selectedAll)>{{ __('Все категории') }}</option>
                     @for($i = 0; $i < $categories->count(); $i++)
-                        <option value="{{ $categories[$i]->id }}">
+                        <option value="{{ $categories[$i]->id }}" @selected($aplications[0]->type == $categories[$i]->name && $selectedAll == false)>
                             {{ __($categories[$i]->name) }}
                         </option>
                     @endfor
@@ -29,7 +28,7 @@
         </h3>
         <div class="grid grid-cols-3 gap-6">
             @foreach($aplications as $aplication)
-                <div class="p-4 bg-[#f0f0f0] rounded-2xl">
+                <a href="{{ route('aplicationPage', $aplication->id) }}" class="p-4 bg-[#f0f0f0] rounded-2xl">
                     <p class="font-medium leading-tight text-3xl">
                         {{ $aplication->pet->alias }}
                     </p>
@@ -44,7 +43,7 @@
                     <p>
                         {{ $aplication->date . ' ' . $aplication->time }}
                     </p>
-                </div>
+                </a>
             @endforeach
         </div>
     </div>
