@@ -25,7 +25,7 @@
                 <label class="px-3" for="maleW" id="maleW_label">{{ __('Женский') }}</label>
                 <input class="radio" type="radio" name="maleW" id="maleW" @checked($pet->male == 'Женский')>
             </div>
-            <input class="input input-bordered w-full" type="text" name="date" id="date" placeholder="Введите дату рождения животного" value='{{ $pet->dateBirthdDay }}'>
+            <input class="input input-bordered w-full" type="text" name="date" id="date" placeholder="Введите дату рождения животного" value='{{ $pet->dateBirthdDay }}' max="{{ date('Y-m-d') }}">
             @error('date')
                 <x-error>
                     {{ $message }}

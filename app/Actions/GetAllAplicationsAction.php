@@ -19,9 +19,11 @@ class GetAllAplicationsAction
         }
         else
         {
-            $aplications = Aplication::all();
+            if (Aplication::all()->count() > 0)
+                $aplications = Aplication::all();
+            else
+                $aplications = NULL;
         }
-
         $data = [
             'categories' => $categories,
             'aplications' => $aplications,

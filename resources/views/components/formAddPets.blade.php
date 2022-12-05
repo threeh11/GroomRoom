@@ -20,7 +20,7 @@
             <label class="px-3" for="maleW" id="maleW_label">{{ __('Женский') }}</label>
             <input class="radio" type="radio" name="maleW" id="maleW" @checked(old('maleW') == 'on')>
         </div>
-        <input class="input input-bordered w-full" type="text" name="date" id="date" placeholder="Введите дату рождения животного" value='{{ old('date') }}'>
+        <input class="input input-bordered w-full" type="text" name="date" id="date" placeholder="Введите дату рождения животного" value="{{ old('date') }}" max="{{ date('Y-m-d') }}">
         @error('date')
             <x-error>
                 {{ $message }}

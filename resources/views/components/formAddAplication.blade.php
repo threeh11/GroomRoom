@@ -46,14 +46,14 @@
             </x-error>
         @enderror
         <input class="input input-bordered w-full" type="text" name="date" id="date" placeholder="Выберите дату приема"
-        value="{{ old('date') }}">
+        value="{{ old('date') }}" min="{{ date('Y-m-d') }}">
         @error('date')
             <x-error>
                 {{ $message }}
             </x-error>
         @enderror
         <input class="input input-bordered w-full" type="text" name="time" id="time" placeholder="Выберите время приема"
-        value="{{ old('time') }}">
+        value="{{ old('time') }}" min="09:00" max="18:00">
         @error('time')
             <x-error>
                 {{ $message }}

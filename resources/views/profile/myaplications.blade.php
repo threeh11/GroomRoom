@@ -55,13 +55,13 @@
             @else
                 <div class="p-6 bg-white rounded-2xl my-10">
                     <h3 class="text-3xl flex justify-center items-center">
-                        {{ __('Нет не активных заявок') }}
+                        {{ __('Нет заявок') }}
                     </h3>
                 </div>
             @endif
     @endif  
-    <div class="block mt-10">
-    @if($countElPage < $countAplications && $countElPage != NULL)
+    <div class="flex my-10">
+    @if($countElPage < $countAplications && $countElPage != NULL && $aplications[0] != NULL)
             <div class="flex flex-row justify-between w-full">
                 {{ $aplications->appends(['count' => $countElPage, 'active' => 1])->links('vendor.pagination.tailwind') }}
                 <div class="btn-group ml-10">
@@ -80,7 +80,7 @@
                 </div>
             </div>
         @else
-            @if($countAplications > 0)
+            @if($countAplications > 0 && $aplications[0] != NULL)
                 <div class="flex justify-center w-full my-10 btn-group">
                     <a class="btn" href="{{ route('myAplications', ['page' => $page, 'count' => 10]) }}">
                         10

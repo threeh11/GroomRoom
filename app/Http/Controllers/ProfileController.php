@@ -55,6 +55,6 @@ class ProfileController extends Controller
                             StoreAplicationAction $storeAplication)
     {
         $storeAplication->handle($request);
-        return redirect()->route('myAplications');
+        return redirect()->route('myAplications', ['page' => 1, 'count' => 10, 'active' => 1]);
     }
 }
