@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\DateRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StorePetsRequest extends FormRequest
@@ -14,10 +15,10 @@ class StorePetsRequest extends FormRequest
     public function rules()
     {
         return [
-            'alias' => ['required', 'max:20', 'min:2'],
-            'type' => ['required', 'max:20', 'min:2'],
-            'date' => ['required'],
-            'race' => ['required', 'max:20', 'min:2'],
+            'alias' => ['required', 'max:20', 'min:2', 'alpha'],
+            'type' => ['required', 'max:20', 'min:2', 'alpha'],
+            'date' => ['required', new DateRule()],
+            'race' => ['required', 'max:20', 'min:2', 'alpha'],
         ];
     }
 }

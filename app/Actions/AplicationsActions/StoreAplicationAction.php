@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\AplicationsActions;
 
 use App\Http\Requests\StoreAplicationsRequest;
 use App\Models\Aplication;

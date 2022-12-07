@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\PetsActions;
 
 use App\Http\Requests\StorePetsRequest;
 use App\Models\Pet;
 
-class StorePetsAction
+class UpdatePetsAction
 {
-    public function handle(StorePetsRequest $request)
+    public function handle(int $id, StorePetsRequest $request)
     {
         $male = '';
         if ($request->maleM == 'on')
@@ -15,7 +15,7 @@ class StorePetsAction
         else if ($request->maleW == 'on')
             $male = 'Женский';
 
-        Pet::create([
+        Pet::find($id)->update([
             'alias' => $request->alias,
             'type' => $request->type,
             'male' => $male,
@@ -23,6 +23,5 @@ class StorePetsAction
             'race' => $request->race,
             'published' => false,
         ]);
-
     }
 }

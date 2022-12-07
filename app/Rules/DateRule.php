@@ -2,6 +2,7 @@
 
 namespace App\Rules;
 
+use Carbon\Carbon;
 use Illuminate\Contracts\Validation\Rule;
 
 class DateRule implements Rule
@@ -25,7 +26,13 @@ class DateRule implements Rule
      */
     public function passes($attribute, $value)
     {
-        //
+        $dateEnd = Carbon::now()->addYear()->format('Y-m-d');
+        $dateNow = Carbon::now()->format('Y-m-d');
+        if ($value > $dateNow && $value < $dateEnd)
+        {
+            return true;
+        }
+        else return false;
     }
 
     /**
@@ -35,6 +42,6 @@ class DateRule implements Rule
      */
     public function message()
     {
-        return 'The validation error message.';
+        return 'Ошибка даты';
     }
 }

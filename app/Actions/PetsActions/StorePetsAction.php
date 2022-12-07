@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\PetsActions;
 
 use App\Http\Requests\StorePetsRequest;
 use App\Models\Pet;
 
-class UpdatePetsAction
+class StorePetsAction
 {
-    public function handle(int $id, StorePetsRequest $request)
+    public function handle(StorePetsRequest $request)
     {
         $male = '';
-        if ($request->maleM == 'on')
+        if ($request->maleM === 'on')
             $male = 'Мужской';
-        else if ($request->maleW == 'on')
+        else if ($request->maleW === 'on')
             $male = 'Женский';
-
-        Pet::find($id)->update([
+            
+        Pet::create([
             'alias' => $request->alias,
             'type' => $request->type,
             'male' => $male,
@@ -23,5 +23,6 @@ class UpdatePetsAction
             'race' => $request->race,
             'published' => false,
         ]);
+
     }
 }

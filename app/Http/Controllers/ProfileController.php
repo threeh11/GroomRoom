@@ -2,17 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\DeletePetAction;
-use App\Actions\GetDataAplicationsAction;
-use App\Actions\GetEditPetsAction;
-use App\Actions\GetPetsAction;
-use App\Actions\StoreAplicationAction;
-use App\Actions\StorePetsAction;
-use App\Actions\UpdatePetsAction;
+use App\Actions\PetsActions\DeletePetAction;
+use App\Actions\PetsActions\GetEditPetsAction;
+use App\Actions\PetsActions\GetPetsAction;
+use App\Actions\PetsActions\StorePetsAction;
+use App\Actions\PetsActions\UpdatePetsAction;
+
+use App\Actions\AplicationsActions\GetDataAplicationsAction;
+use App\Actions\AplicationsActions\StoreAplicationAction;
+
 use App\Http\Requests\StoreAplicationsRequest;
 use App\Http\Requests\StorePetsRequest;
 
-use App\Models\Pet;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller

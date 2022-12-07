@@ -25,6 +25,9 @@
                 <label class="px-3" for="maleW" id="maleW_label">{{ __('Женский') }}</label>
                 <input class="radio" type="radio" name="maleW" id="maleW" @checked($pet->male == 'Женский')>
             </div>
+            <x-error class="hidden badge badge-error gap-2" id="maleError">
+                {{ "Вы не выбрали пол!" }}
+            </x-error>
             <input class="input input-bordered w-full" type="text" name="date" id="date" placeholder="Введите дату рождения животного" value='{{ $pet->dateBirthdDay }}' max="{{ date('Y-m-d') }}">
             @error('date')
                 <x-error>
@@ -37,7 +40,7 @@
                     {{ $message }}
                 </x-error>
             @enderror
-            <input class="flex m-auto btn bg-[#3d4451]" type="submit" value="Редактировать">
+            <input class="flex m-auto btn bg-[#3d4451]" type="button" value="Редактировать" id="submitFormEditPet">
         </form>
     </div>
 @endsection

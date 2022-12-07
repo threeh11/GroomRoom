@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\GetAllAplicationsAction;
-use App\Actions\GetAplicationAction;
-use App\Models\Aplication;
-use App\Models\Category;
+use App\Actions\AplicationsActions\GetAllAplicationsAction;
+use App\Actions\AplicationsActions\GetAplicationAction;
+
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -17,7 +16,11 @@ class PagesController extends Controller
 
     public function allAplications(Request $request, GetAllAplicationsAction $getAllAplications)
     {
-        return view('allaplications', $getAllAplications->handle($request));
+        $data = $getAllAplications->handle($request);
+        if ($data === NULL)
+            return redirect()->route('allAplications', ['category' => 'Все категории']);
+        else
+            return view('allaplications', $data);
     }
 
     public function profile()

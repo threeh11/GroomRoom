@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\DateRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreAplicationsRequest extends FormRequest
@@ -17,7 +18,7 @@ class StoreAplicationsRequest extends FormRequest
             'pet' => ['required'],
             'category' => ['required'],
             'place' => ['required'],
-            'date' => ['required'],
+            'date' => ['required', new DateRule()],
             'time' => ['required'],
         ];
     }
