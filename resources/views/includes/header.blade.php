@@ -13,7 +13,7 @@
     <div class="flex flex-row w-1/4 justify-between">
         <a href="{{ route('profile') }}">{{ __('Профиль') }}</a>
         <p>|</p>
-        <a href="{{ route('myPet') }}">{{ __('Питомцы') }}</a>
+        <a href="{{ route('myPet.index') }}">{{ __('Питомцы') }}</a>
         <p>|</p>
         <a href="{{ route('myAplications', ['count' => 10, 'page' => 1]) }}">{{ __('Заявки') }}</a>
     </div>

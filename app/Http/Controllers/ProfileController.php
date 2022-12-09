@@ -18,33 +18,33 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    public function myPet(GetPetsAction $getPets)
+    public function index(GetPetsAction $getPets)
     {
         return view('profile.mypet', $getPets->handle());
     }
 
-    public function addPet(StorePetsRequest $request, StorePetsAction $storePets)
+    public function store(StorePetsRequest $request, StorePetsAction $storePets)
     {
         $storePets->handle($request);
-        return redirect()->route('myPet');
+        return redirect()->route('myPet.index');
     }
 
-    public function deletePet(int $id, DeletePetAction $deletePet)
+    public function destroy(int $id, DeletePetAction $deletePet)
     {
         $deletePet->handle($id);
-        return redirect()->route('myPet');
+        return redirect()->route('myPet.index');
     }
 
-    public function editPet(int $id, GetEditPetsAction $getEditPets)
+    public function edit(int $id, GetEditPetsAction $getEditPets)
     {
         return view('profile.editpet', $getEditPets->handle($id));
     }
 
-    public function storePet(int $id, StorePetsRequest $request, 
+    public function update(int $id, StorePetsRequest $request, 
                              UpdatePetsAction $updatePets)
     {
         $updatePets->handle($id, $request);
-        return redirect()->route('myPet');
+        return redirect()->route('myPet.index');
     }
 
     public function myAplications(Request $request, GetDataAplicationsAction $getAplications)

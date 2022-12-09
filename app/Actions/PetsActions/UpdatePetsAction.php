@@ -10,9 +10,9 @@ class UpdatePetsAction
     public function handle(int $id, StorePetsRequest $request)
     {
         $male = '';
-        if ($request->maleM == 'on')
+        if ($request->maleM === 'on')
             $male = 'Мужской';
-        else if ($request->maleW == 'on')
+        else if ($request->maleW === 'on')
             $male = 'Женский';
 
         Pet::find($id)->update([

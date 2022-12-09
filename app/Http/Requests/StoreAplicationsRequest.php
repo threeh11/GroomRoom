@@ -18,7 +18,7 @@ class StoreAplicationsRequest extends FormRequest
             'pet' => ['required'],
             'category' => ['required'],
             'place' => ['required'],
-            'date' => ['required', new DateRule()],
+            'date' => ['required'],
             'time' => ['required'],
         ];
     }

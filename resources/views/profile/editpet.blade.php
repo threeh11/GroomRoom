@@ -4,7 +4,8 @@
 
 @section('main')
     <div id="formAddPets" class="mt-10">
-        <form action="{{ route('storePet', $pet->id) }}" method="post" class="flex flex-col gap-y-3 w-1/3 m-auto">
+        <form action="{{ route('myPet.update', $pet->id) }}" method="post" class="flex flex-col gap-y-3 w-1/3 m-auto">
+            @method('PUT')
             @csrf
             <input class="input input-bordered w-full" type="text" name="alias" placeholder="Введите кличку животного" value='{{ $pet->alias }}'>
             @error('alias')
@@ -25,10 +26,7 @@
                 <label class="px-3" for="maleW" id="maleW_label">{{ __('Женский') }}</label>
                 <input class="radio" type="radio" name="maleW" id="maleW" @checked($pet->male == 'Женский')>
             </div>
-            <x-error class="hidden badge badge-error gap-2" id="maleError">
-                {{ "Вы не выбрали пол!" }}
-            </x-error>
-            <input class="input input-bordered w-full" type="text" name="date" id="date" placeholder="Введите дату рождения животного" value='{{ $pet->dateBirthdDay }}' max="{{ date('Y-m-d') }}">
+            <input class="input input-bordered w-full" type="date" name="date" id="date" placeholder="Введите дату рождения животного" value='{{ $pet->dateBirthdDay }}' max="{{ date('Y-m-d') }}">
             @error('date')
                 <x-error>
                     {{ $message }}
@@ -40,7 +38,7 @@
                     {{ $message }}
                 </x-error>
             @enderror
-            <input class="flex m-auto btn bg-[#3d4451]" type="button" value="Редактировать" id="submitFormEditPet">
+            <input class="flex m-auto btn bg-[#3d4451]" type="submit" value="Редактировать" id="submitFormEditPet">
         </form>
     </div>
 @endsection

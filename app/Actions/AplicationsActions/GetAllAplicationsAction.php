@@ -38,7 +38,7 @@ class GetAllAplicationsAction
                 'categories' => $categories,
                 'aplications' => $aplications,
                 'selectedCategory' => (int)$request->category,
-                'selectedAll' => $request->category == "Все категории" ? true : false,
+                'selectedAll' => $request->category === "Все категории" ? true : false,
             ];
             return $data;
         }

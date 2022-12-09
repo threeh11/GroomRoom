@@ -1,5 +1,5 @@
 <div class="{{ $errors->any() == false ? 'hidden' : 'block' }}" id="form">
-    <form action="{{ route('addPet') }}" method="post" class="flex flex-col gap-y-3 w-1/3 m-auto">
+    <form action="{{ route('myPet.store') }}" method="post" class="flex flex-col gap-y-3 w-1/3 m-auto">
         @csrf
         <input class="input input-bordered w-full" type="text" name="alias" placeholder="Введите кличку животного" value='{{ old('alias') }}'>
         @error('alias')

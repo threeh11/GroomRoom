@@ -29,7 +29,7 @@ class GetDataAplicationsAction
             'page' => $request->page,
             'countAplications' => Aplication::all()->count(),
             'countElPage' => $request->count,
-            'dateEnd' => Carbon::now()->addYear()->format('Y-m-d'),
+            'dateEnd' => Carbon::now()->addDays(30)->format('Y-m-d'),
         ];
 
         return $data;

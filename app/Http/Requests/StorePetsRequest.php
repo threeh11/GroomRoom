@@ -17,7 +17,7 @@ class StorePetsRequest extends FormRequest
         return [
             'alias' => ['required', 'max:20', 'min:2', 'alpha'],
             'type' => ['required', 'max:20', 'min:2', 'alpha'],
-            'date' => ['required', new DateRule()],
+            'date' => ['required'],
             'race' => ['required', 'max:20', 'min:2', 'alpha'],
         ];
     }
