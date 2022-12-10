@@ -31,10 +31,11 @@
                   <th>{{ $pets[$i]->type }}</th>
                   <th class="w-[200px]">{{ $pets[$i]->male }}</th>
                   <th class="w-[10px]">
-                    <a class="btn bg-[#303640]" href="{{ route('editPet', $pets[$i]->id) }}">EDIT</a>
+                    <a class="btn bg-[#303640]" href="{{ route('myPet.edit', $pets[$i]->id) }}">EDIT</a>
                   </th> 
                   <th class="w-[10px]">
-                      <form action="{{ route('deletePet', $pets[$i]->id) }}" method="post">
+                      <form action="{{ route('myPet.destroy', $pets[$i]->id) }}" method="post">
+                        @method('DELETE')
                         @csrf
                         <input class="cursor-pointer btn bg-[#303640]" type="submit" value="DELETE">
                       </form>

@@ -1,10 +1,13 @@
 <?php
 
-namespace App\Actions;
+namespace App\Actions\AplicationsActions;
 
 use App\Models\Aplication;
 use App\Models\Category;
 use App\Models\Pet;
+
+use Carbon\Carbon;
+
 use Illuminate\Http\Request;
 
 class GetDataAplicationsAction
@@ -26,6 +29,7 @@ class GetDataAplicationsAction
             'page' => $request->page,
             'countAplications' => Aplication::all()->count(),
             'countElPage' => $request->count,
+            'dateEnd' => Carbon::now()->addDays(30)->format('Y-m-d'),
         ];
 
         return $data;

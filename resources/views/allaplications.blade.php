@@ -10,11 +10,11 @@
                     <select class="select select-bordered w-full max-w-xs" name="category">
                     @if($categories != NULL)
                         <option @selected($selectedAll)>{{ __('Все категории') }}</option>
-                        @for($i = 0; $i < $categories->count(); $i++)
-                            <option value="{{ $categories[$i]->id }}" @selected($aplications[0]->type == $categories[$i]->name && $selectedAll == false)>
-                                {{ __($categories[$i]->name) }}
+                        @foreach($categories as $category)
+                            <option value="{{ $category->id }}" @selected($selectedCategory === $category->id)>
+                                {{ __($category->name) }}
                             </option>
-                        @endfor
+                        @endforeach
                     @else
                         <option disabled selected>{{ __('Нет ниодной категории') }}</option>
                     @endif

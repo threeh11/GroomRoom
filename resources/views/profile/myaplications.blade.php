@@ -11,7 +11,7 @@
                 {{ __('Закрыть') }}
             @endif
         </x-addButton>
-        <x-formAddAplication :pets="$pets" :categories="$categories"/>
+        <x-formAddAplication :pets="$pets" :categories="$categories" :dateEnd="$dateEnd"/>
         <a href="{{ route('myAplications', ['count' => 10, 'page' => $page, 'active' => 1]) }}" class="btn">{{ __('Активные') }}</a>
         <a href="{{ route('myAplications', ['count' => 10, 'page' => $page, 'active' => 0]) }}" class="btn">{{ __('Не активные') }}</a>
     @else
@@ -22,7 +22,7 @@
                 {{ __('Закрыть') }}
             @endif
         </x-addButton>
-        <x-formAddAplication :pets="$pets" :categories="$categories"/>
+        <x-formAddAplication :pets="$pets" :categories="$categories" :dateEnd="$dateEnd"/>
         <a href="{{ route('myAplications', ['count' => 10, 'page' => $page, 'active' => 1]) }}" class="btn">{{ __('Активные') }}</a>
         <a href="{{ route('myAplications', ['count' => 10, 'page' => $page, 'active' => 0]) }}" class="btn">{{ __('Не активные') }}</a>
         @if($aplications[0] != NULL)

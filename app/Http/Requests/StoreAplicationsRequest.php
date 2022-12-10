@@ -2,6 +2,7 @@
 
 namespace App\Http\Requests;
 
+use App\Rules\DateRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class StoreAplicationsRequest extends FormRequest

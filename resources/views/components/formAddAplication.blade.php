@@ -46,7 +46,7 @@
             </x-error>
         @enderror
         <input class="input input-bordered w-full" type="text" name="date" id="date" placeholder="Выберите дату приема"
-        value="{{ old('date') }}" min="{{ date('Y-m-d') }}">
+        value="{{ old('date') }}" min="{{ date('Y-m-d') }}" max="{{ $dateEnd }}">
         @error('date')
             <x-error>
                 {{ $message }}
